@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حصن المسلم </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+</head>
+<body class="theme-morning">
+
+    <button id="theme-toggle" class="theme-control-btn" onclick="toggleDarkMode()">
+        <span id="theme-text">وضع النهار</span>
+        <span id="theme-icon-wrapper">☀️</span>
+    </button>
+
+    <div class="max-w-3xl mx-auto w-full flex-grow px-4">
+        <div class="header-section flex flex-col items-start gap-3 mt-4 rounded-xl">
+            <h1 class="main-title">حصن المسلم</h1>
+            <div class="nav-container">
+                <select class="nav-select" id="main-nav" onchange="changeSection(this.value)">
+                    <option value="morning">☀️ أذكار الصباح والمساء</option>
+                    <option value="prophet">✨ جوامع دعاء النبي ﷺ</option>
+                    <option value="home">🏠 أذكار المنزل</option>
+                    <option value="mosque">🕌 أذكار المسجد</option>
+                    <option value="clothes">👕 أذكار اللباس</option>
+                    <option value="bathroom">🧼 أذكار الخلاء</option>
+                    <option value="tasbih">📿 تسابيح</option>
+                </select>
+              <button class="tasbih-nav-btn" onclick="changeSection('tasbih')">
+    <span>📿</span>
+    تسابيح
+</button>
+
+            </div>
+        </div>
+
+        <div id="morning-evening-tabs" class="morning-evening-controls">
+            <button onclick="setMorningEvening('morning')" id="sub-m" class="sub-tab-btn active">الصباح</button>
+            <button onclick="setMorningEvening('evening')" id="sub-e" class="sub-tab-btn">المساء</button>
+        </div>
+
+        <div id="tasbih-dots" class="dot-selector hidden">
+            <label class="flex items-center gap-2 font-bold cursor-pointer">
+                <input type="radio" name="limit" value="33" checked onchange="setTasbihLimit(33)"> 33 مرة
+            </label>
+            <label class="flex items-center gap-2 font-bold cursor-pointer">
+                <input type="radio" name="limit" value="100" onchange="setTasbihLimit(100)"> 100 مرة
+            </label>
+        </div>
+
+        <div id="content-list" class="pb-12"></div>
+    </div>
+
+    <footer>
+        <div class="flex flex-col gap-1">
+            <span class="opacity-70 text-sm">حقوق النشر محفوظة © 2026</span>
+            <span class="font-bold text-xl" style="color: var(--accent);">تصميم وكتابة: إسلام الطيب</span>
+        </div>
+    </footer>
+
+</body>
+</html>
