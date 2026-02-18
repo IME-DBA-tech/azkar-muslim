@@ -304,12 +304,24 @@ function renderTasbih() {
 
 /* --- 4. التنقل والثيمات --- */
 function changeSection(value) {
+    // 1. احفظ هل كان الوضع الليلي مفعلاً قبل تغيير القسم؟
+    const isDark = document.body.classList.contains('dark-mode');
+
+    // 2. تغيير اسم الثيم (هذا السطر يمسح كل شيء قديم)
     document.body.className = `theme-${value}`;
-    if (document.body.classList.contains('dark-mode')) document.body.classList.add('dark-mode');
+
+    // 3. أعد وضع الـ dark-mode فوراً إذا كان مفعلاً
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // 4. إغلاق القائمة (blur) لتختفي بعد الاختيار
     document.activeElement.blur();
+
     const tabs = document.getElementById('morning-evening-tabs');
     const dotSelector = document.getElementById('tasbih-dots');
 
+    // 5. التحكم في إظهار وإخفاء الأقسام
     if (value === 'tasbih') {
         dotSelector?.classList.remove('hidden');
         tabs?.classList.add('hidden');
@@ -324,8 +336,11 @@ function changeSection(value) {
             renderContent(sectionsData[value] || []);
         }
     }
-    loadProgress(); // إعادة تحميل الأرقام المحفوظة لهذا القسم
+
+    // 6. تحميل التقدم المحفوظ لهذا القسم
+    loadProgress(); 
 }
+
 
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
@@ -380,4 +395,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(fanoos);
 
 });
+
 
