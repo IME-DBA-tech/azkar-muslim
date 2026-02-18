@@ -38,6 +38,7 @@
         }
 
         /* --- تنسيق الهيدر والقوائم --- */
+       /* --- تنسيق الهيدر المحدث (توسيط كامل) --- */
 .header-section {
     padding: 20px 15px;
     background: rgba(0,0,0,0.02);
@@ -45,52 +46,76 @@
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center; /* لتوسيط كل شيء داخله */
     text-align: center;
 }
 
+/* --- تنسيق عنوان حصن المسلم الجديد --- */
 .main-title {
     font-family: 'Lateef', serif;
-    font-size: clamp(2.8rem, 10vw, 3.8rem);
+    font-size: clamp(2.8rem, 10vw, 3.8rem); /* حجم كبير ومميز */
     color: var(--accent);
     margin: 10px 0;
     position: relative;
     font-weight: bold;
+    /* تأثير توهج إسلامي حديث */
     text-shadow: 0 0 15px rgba(142, 115, 65, 0.3);
     transition: all 0.5s ease;
     width: 100%;
 }
 
-.main-title::before { content: "«"; margin-left: 10px; opacity: 0.3; font-size: 2rem; }
-.main-title::after { content: "»"; margin-right: 10px; opacity: 0.3; font-size: 2rem; }
+/* زخرفة حديثة حول العنوان */
+.main-title::before {
+    content: "«";
+    margin-left: 10px;
+    opacity: 0.3;
+    font-size: 2rem;
+}
 
+.main-title::after {
+    content: "»";
+    margin-right: 10px;
+    opacity: 0.3;
+    font-size: 2rem;
+}
+
+/* تأثير عند اللمس أو الحرك فوق العنوان */
 .main-title:hover {
     letter-spacing: 2px;
     text-shadow: 0 0 25px var(--accent);
 }
 
+/* تعديل حاوية التنقل لتكون في المنتصف أيضاً */
 .nav-container {
     display: flex;
     gap: 12px;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* توسيط الأزرار والقائمة */
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* عشان لو الموبايل صغير الأزرار تنزل تحت بعضها بانتظام */
 }
 
-.nav-select {
-    flex: 1;
-    max-width: 280px;
-    padding: 10px;
-    border-radius: 12px;
-    border: 2px solid var(--accent);
-    background: var(--card-bg);
-    color: var(--text-main);
-    font-weight: bold;
-    font-size: 1.1rem;
-    outline: none;
-    cursor: pointer;
-}
+
+        .nav-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-select {
+            flex: 1;
+            max-width: 280px;
+            padding: 10px;
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 1.1rem;
+            outline: none;
+            cursor: pointer;
+        }
 
         /* --- تنسيق كروت الأذكار والعدادات --- */
         .dhikr-card {
@@ -102,10 +127,6 @@
             padding: 1.2rem;
             animation: fadeIn 0.5s ease;
             transition: 0.3s;
-            /* إضافة إصلاح الخروج هنا أيضاً */
-            max-width: 100%;
-            overflow: hidden;
-            box-sizing: border-box;
         }
 
         .count-display {
@@ -120,7 +141,6 @@
             font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 5px;
-            flex-shrink: 0;
         }
 
         .quran-text {
@@ -134,7 +154,6 @@
             padding: 10px;
             border-radius: 10px;
             white-space: pre-line;
-            word-wrap: break-word;
         }
 
         .hadith-text {
@@ -142,7 +161,6 @@
             line-height: 1.6;
             text-align: justify;
             color: var(--text-main);
-            word-wrap: break-word;
         }
 
         /* --- أزرار الإعادة وتأثير التوهج --- */
@@ -212,6 +230,7 @@
         }
 
         /* --- تنسيق شبكة التسابيح --- */
+        /* --- التنسيق الجديد لشبكة التسابيح --- */
 .tasbih-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -232,6 +251,7 @@
     overflow: hidden;
 }
 
+/* تأثير الضغط */
 .tasbih-box:active {
     transform: scale(0.92);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -250,12 +270,14 @@
     font-weight: 700;
 }
 
+/* زر الإعادة داخل الصندوق */
 .tasbih-box .reset-btn {
     width: 100%;
     border: none;
     font-size: 0.75rem;
     opacity: 0.6;
 }
+
 
         .dot-selector {
             display: flex;
@@ -276,6 +298,7 @@
             background: rgba(0,0,0,0.02);
         }
 
+        /* تنسيق زر التسابيح العلوي */
 .tasbih-nav-btn {
     background: linear-gradient(135deg, var(--accent), #b39359);
     color: white !important;
@@ -288,9 +311,28 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow: 0 4px 12px rgba(142, 115, 65, 0.3);
 }
 
-.count-hidden { display: none !important; }
+.tasbih-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(142, 115, 65, 0.4);
+    filter: brightness(1.1);
+}
+
+.tasbih-nav-btn:active {
+    transform: translateY(0);
+}
+
+/* إضافة لمسة جمالية للأيقونة داخل الزر */
+.tasbih-nav-btn i {
+    font-size: 1.2rem;
+}
+
+/* إخفاء العداد والزر إذا كانت القيمة 0 */
+.count-hidden {
+    display: none !important;
+}
 
 /* حاوية السورة الطويلة (التقليب الأفقي) */
 .surah-container {
@@ -300,16 +342,38 @@
     direction: rtl;
     gap: 0;
     width: 100%;
-    max-width: 100%;
     -webkit-overflow-scrolling: touch;
     user-select: none;
-    box-sizing: border-box;
+}
+
+.surah-container:active {
+    cursor: grabbing;
+}
+
+/* إضافة أزرار تنقل بسيطة للمتصفح */
+.nav-arrow {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.nav-arrow:hover { opacity: 1; }
+
+
+.surah-container::-webkit-scrollbar {
+    display: none;
 }
 
 .surah-page {
-    flex: 0 0 100%; /* إصلاح حاسم: الصفحة تأخذ 100% فقط */
     min-width: 100%;
-    max-width: 100%;
     scroll-snap-align: start;
     padding: 10px;
     box-sizing: border-box;
@@ -320,12 +384,117 @@
     text-align: center;
     background: rgba(0,0,0,0.02);
     border-radius: 10px;
-    /* منع خروج النص */
-    white-space: normal;
+    /* --- الإضافة رقم 1 لمنع الخروج --- */
     word-wrap: break-word;
     overflow-wrap: break-word;
+    white-space: normal;
 }
 
+/* حبل الزينة العلوي */
+/* حبل الزينة - نسخة الهيدر */
+.ramadan-lights {
+    position: relative; /* خليه ريلاتيف عشان يتحرك مع الهيدر */
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 0;
+    z-index: 1;
+    pointer-events: none;
+    letter-spacing: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+/* تأكد إن الهيدر نفسه مش واخد fixed في كودك الأصلي */
+
+
+/* الفانوس المتحرك */
+.fanoos {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    font-size: 50px;
+    z-index: 1000;
+    animation: swing 3s infinite ease-in-out;
+    transform-origin: top center;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+/* كلمة رمضان كريم */
+.ramadan-logo-text {
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in;
+}
+
+/* حركة المرجحة للفانوس */
+@keyframes swing {
+    0% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(-15deg); }
+}
+/* 1. الحاوية الأساسية: لازم تكون بحجم الكارد بالظبط */
+.surah-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    direction: rtl;
+    gap: 0;
+    width: 100%;
+    max-width: 100%; 
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scrollbar-width: none; /* إخفاء السكرول */
+}
+
+.surah-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.surah-container:active {
+    cursor: grabbing;
+}
+
+/* إخفاء شريط التمرير في كروم وسفاري */
+.surah-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* الصفحة الواحدة داخل السحب */
+/* 2. الصفحة الواحدة: هي دي اللي كانت بتهرب، الكود ده هيحبسها */
+.surah-page {
+    /* تجبر الصفحة تكون عرض الكارد بالظبط */
+    flex: 0 0 100%; 
+    width: 100%;
+    max-width: 100%;
+    
+    scroll-snap-align: start;
+    padding: 15px;
+    box-sizing: border-box; /* عشان الـ padding ميزودش العرض */
+    
+    /* أهم أسطر لحل مشكلة الصورة */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal; /* بتخلي الكلام ينزل سطر جديد بدل ما يمشي بالعرض */
+    
+    text-align: center;
+    font-family: 'Lateef', serif;
+    font-size: 1.6rem; /* حجم مناسب للموبايل */
+    line-height: 1.8;
+    color: var(--quran-color);
+    background: rgba(0,0,0,0.02);
+    border-radius: 10px;
+}
+
+/* زينة رمضان (الهيدر) */
 .ramadan-lights {
     position: relative;
     display: block;
@@ -341,6 +510,17 @@
     opacity: 0.8;
 }
 
+.ramadan-logo-text {
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in;
+}
+
+/* الفانوس */
 .fanoos {
     position: fixed;
     bottom: 30px;
@@ -352,16 +532,23 @@
     filter: drop-shadow(0 0 10px gold);
 }
 
-.ramadan-logo-text {
-    font-size: 1.5rem;
-    color: var(--accent);
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-    animation: fadeIn 2s ease-in;
+/* أزرار التنقل (لو بتستخدمها) */
+.nav-arrow {
+    background: var(--accent);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
 }
+.nav-arrow:hover { opacity: 1; }
 
+/* الأنيميشن */
 @keyframes swing {
     0% { transform: rotate(-15deg); }
     50% { transform: rotate(15deg); }
@@ -373,40 +560,14 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* التكرارات المطلوبة مع الإصلاح */
 .dhikr-card {
     width: 100%;
     max-width: 100%;
-    overflow: hidden; 
+    overflow: hidden; /* أي حاجة تطلع بره تتمسح */
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* عشان العداد يفضل على الشمال والنص يمين */
     align-items: center;
     gap: 10px;
+    /* --- الإضافة رقم 2 لمنع الخروج من الكارد --- */
     box-sizing: border-box;
 }
-
-.surah-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 0;
-    width: 100%;
-    max-width: 100%;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-}
-
-.surah-page {
-    flex: 0 0 100%;
-    min-width: 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
-    padding: 15px;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    text-align: center;
-}
-
-.surah-container::-webkit-scrollbar { display: none; }
