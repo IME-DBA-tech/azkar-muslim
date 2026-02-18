@@ -341,11 +341,24 @@ function updateThemeUI() {
 
 /* --- 5. التشغيل عند التحميل --- */
 window.onload = () => {
-    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+    // 1. فحص هل المستخدم اختار ثيم سابقاً؟
+    const savedTheme = localStorage.getItem('theme');
+    
+    // 2. فحص هل إعدادات الهاتف نفسه Dark Mode؟
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // لو فيه اختيار قديم طبقه، لو مفيش شوف إعدادات الفون
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+
     updateThemeUI();
     changeSection('morning');
     setTimeout(loadProgress, 200);
 };
+
 
 /* --- 6. زينة رمضان (DOM) --- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -367,3 +380,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(fanoos);
 
 });
+
