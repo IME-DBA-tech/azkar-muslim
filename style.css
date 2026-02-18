@@ -1,3 +1,4 @@
+
         /* --- متغيرات الألوان والأنماط الأساسية --- */
         :root {
             --bg-color: #fdfaf3;
@@ -384,10 +385,6 @@
     text-align: center;
     background: rgba(0,0,0,0.02);
     border-radius: 10px;
-    /* --- الإضافة رقم 1 لمنع الخروج --- */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
 }
 
 /* حبل الزينة العلوي */
@@ -568,6 +565,6 @@
     flex-direction: row-reverse; /* عشان العداد يفضل على الشمال والنص يمين */
     align-items: center;
     gap: 10px;
-    /* --- الإضافة رقم 2 لمنع الخروج من الكارد --- */
-    box-sizing: border-box;
 }
+
+
