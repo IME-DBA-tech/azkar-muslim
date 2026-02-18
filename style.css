@@ -436,21 +436,25 @@
     50% { transform: rotate(15deg); }
     100% { transform: rotate(-15deg); }
 }
-/* حاوية السحب (الصور/الصفحات) */
+/* 1. الحاوية الأساسية: لازم تكون بحجم الكارد بالظبط */
 .surah-container {
-    cursor: grab;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     direction: rtl;
     gap: 0;
     width: 100%;
-    max-width: 100%; /* عشان ما تفرش لبره */
+    max-width: 100%; 
+    position: relative;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
-    user-select: none;
-    scrollbar-width: none; /* إخفاء السكرول في فايرفوكس */
+    scrollbar-width: none; /* إخفاء السكرول */
 }
+
+.surah-container::-webkit-scrollbar {
+    display: none;
+}
+
 
 .surah-container:active {
     cursor: grabbing;
@@ -462,23 +466,29 @@
 }
 
 /* الصفحة الواحدة داخل السحب */
+/* 2. الصفحة الواحدة: هي دي اللي كانت بتهرب، الكود ده هيحبسها */
 .surah-page {
-    min-width: 100%;
+    /* تجبر الصفحة تكون عرض الكارد بالظبط */
+    flex: 0 0 100%; 
+    width: 100%;
     max-width: 100%;
+    
     scroll-snap-align: start;
     padding: 15px;
-    box-sizing: border-box;
-    font-family: 'Lateef', serif;
-    font-size: 1.8rem;
-    line-height: 1.6;
-    color: var(--quran-color);
-    text-align: center;
-    background: rgba(0,0,0,0.02);
-    border-radius: 10px;
-    /* حل مشكلة خروج الكلام بره المربع */
+    box-sizing: border-box; /* عشان الـ padding ميزودش العرض */
+    
+    /* أهم أسطر لحل مشكلة الصورة */
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal;
+    white-space: normal; /* بتخلي الكلام ينزل سطر جديد بدل ما يمشي بالعرض */
+    
+    text-align: center;
+    font-family: 'Lateef', serif;
+    font-size: 1.6rem; /* حجم مناسب للموبايل */
+    line-height: 1.8;
+    color: var(--quran-color);
+    background: rgba(0,0,0,0.02);
+    border-radius: 10px;
 }
 
 /* زينة رمضان (الهيدر) */
@@ -547,10 +557,15 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* تحسين أداء الكروت */
-.dhikr-card, .tasbih-box {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
+.dhikr-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* أي حاجة تطلع بره تتمسح */
+    display: flex;
+    flex-direction: row-reverse; /* عشان العداد يفضل على الشمال والنص يمين */
+    align-items: center;
+    gap: 10px;
 }
+
 
 
