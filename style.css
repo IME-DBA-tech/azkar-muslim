@@ -1,42 +1,43 @@
-/* --- 1. الأساسيات والثيمات --- */
-:root {
-    --bg-color: #fdfaf3;
-    --card-bg: #ffffff;
-    --text-main: #2c3e50;
-    --accent: #8e7341;
-    --quran-color: #1a535c;
-    --glow-color: #ffd700;
-}
+        /* --- متغيرات الألوان والأنماط الأساسية --- */
+        :root {
+            --bg-color: #fdfaf3;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --accent: #8e7341;
+            --quran-color: #1a535c;
+            --glow-color: #ffd700;
+        }
 
-/* ثيمات الأقسام */
-body.theme-morning { --bg-color: #fdfaf3; --accent: #8e7341; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ff9800; }
-body.theme-evening { --bg-color: #121212; --accent: #d4af37; --card-bg: #1e1e1e; --text-main: #e0e0e0; --quran-color: #ffd700; --glow-color: #fff176; }
-body.theme-home { --bg-color: #f0f4f8; --accent: #2980b9; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #4fc3f7; }
-body.theme-mosque { --bg-color: #e8f5e9; --accent: #2e7d32; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #81c784; }
-body.theme-clothes { --bg-color: #fff3e0; --accent: #ef6c00; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ffb74d; }
-body.theme-prophet { --bg-color: #f3e5f5; --accent: #7b1fa2; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ba68c8; }
-body.theme-tasbih { --bg-color: #e0f2f1; --accent: #00796b; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #4db6ac; }
+        /* --- أنماط الثيمات المختلفة (صباح، مساء، مسجد...) --- */
+        body.theme-morning { --bg-color: #fdfaf3; --accent: #8e7341; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ff9800; }
+        body.theme-evening { --bg-color: #121212; --accent: #d4af37; --card-bg: #1e1e1e; --text-main: #e0e0e0; --quran-color: #ffd700; --glow-color: #fff176; }
+        body.theme-home { --bg-color: #f0f4f8; --accent: #2980b9; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #4fc3f7; }
+        body.theme-mosque { --bg-color: #e8f5e9; --accent: #2e7d32; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #81c784; }
+        body.theme-clothes { --bg-color: #fff3e0; --accent: #ef6c00; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ffb74d; }
+        body.theme-prophet { --bg-color: #f3e5f5; --accent: #7b1fa2; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #ba68c8; }
+        body.theme-tasbih { --bg-color: #e0f2f1; --accent: #00796b; --card-bg: #ffffff; --text-main: #2c3e50; --glow-color: #4db6ac; }
 
-body.dark-mode {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-main: #ffd700; 
-    --quran-color: #ffd700;
-}
+        /* --- إعدادات الوضع الليلي (Dark Mode) --- */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffd700; 
+            --quran-color: #ffd700;
+        }
 
-body {
-    font-family: 'Amiri', serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    transition: all 0.5s ease;
-    background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: all 0.5s ease;
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-/* --- 2. الهيدر والعناوين --- */
+        /* --- تنسيق الهيدر والقوائم --- */
 .header-section {
     padding: 20px 15px;
     background: rgba(0,0,0,0.02);
@@ -44,7 +45,7 @@ body {
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     text-align: center;
 }
 
@@ -53,8 +54,19 @@ body {
     font-size: clamp(2.8rem, 10vw, 3.8rem);
     color: var(--accent);
     margin: 10px 0;
+    position: relative;
     font-weight: bold;
     text-shadow: 0 0 15px rgba(142, 115, 65, 0.3);
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+.main-title::before { content: "«"; margin-left: 10px; opacity: 0.3; font-size: 2rem; }
+.main-title::after { content: "»"; margin-right: 10px; opacity: 0.3; font-size: 2rem; }
+
+.main-title:hover {
+    letter-spacing: 2px;
+    text-shadow: 0 0 25px var(--accent);
 }
 
 .nav-container {
@@ -77,56 +89,225 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     outline: none;
+    cursor: pointer;
 }
 
-/* --- 3. الكروت والعدادات --- */
-.dhikr-card {
-    background: var(--card-bg);
-    border-right: 6px solid var(--accent);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+        /* --- تنسيق كروت الأذكار والعدادات --- */
+        .dhikr-card {
+            background: var(--card-bg);
+            border-right: 6px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            animation: fadeIn 0.5s ease;
+            transition: 0.3s;
+            /* إضافة إصلاح الخروج هنا أيضاً */
+            max-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .count-display {
+            background-color: var(--accent);
+            color: white;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            flex-shrink: 0;
+        }
+
+        .quran-text {
+            font-family: 'Lateef', serif;
+            font-size: 1.8rem;
+            line-height: 1.5;
+            color: var(--quran-color);
+            text-align: center;
+            display: block;
+            background: rgba(0,0,0,0.02);
+            padding: 10px;
+            border-radius: 10px;
+            white-space: pre-line;
+            word-wrap: break-word;
+        }
+
+        .hadith-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-align: justify;
+            color: var(--text-main);
+            word-wrap: break-word;
+        }
+
+        /* --- أزرار الإعادة وتأثير التوهج --- */
+        .reset-btn {
+            font-size: 0.85rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 4px 14px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            background: transparent;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .reset-active {
+            background-color: var(--glow-color) !important;
+            color: #000 !important;
+            border-color: white !important;
+            box-shadow: 0 0 20px var(--glow-color);
+            transform: scale(1.1);
+            animation: glow-animation 1s infinite alternate;
+        }
+
+        @keyframes glow-animation {
+            from { box-shadow: 0 0 10px var(--glow-color); transform: scale(1.05); }
+            to { box-shadow: 0 0 30px var(--glow-color); transform: scale(1.15); }
+        }
+
+        /* --- تنسيق الزر العائم للثيم --- */
+        .theme-control-btn {
+            position: fixed !important;
+            top: 20px !important;
+            left: 20px !important;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: var(--accent);
+            color: white;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .morning-evening-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .sub-tab-btn {
+            padding: 8px 30px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 2px solid var(--accent);
+            transition: 0.3s;
+        }
+
+        .sub-tab-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* --- تنسيق شبكة التسابيح --- */
+.tasbih-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden; /* السور الواقي */
+    margin: 25px 0;
 }
 
-.count-display {
-    background-color: var(--accent);
-    color: white;
-    width: 55px;
-    height: 55px;
+.tasbih-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(0,04,0,0.05);
+    border-radius: 20px;
+    padding: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tasbih-box:active {
+    transform: scale(0.92);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tasbih-box .count-display {
+    margin: 15px auto;
+    background: linear-gradient(135deg, var(--accent), #b39359);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.tasbih-box span.block {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.tasbih-box .reset-btn {
+    width: 100%;
+    border: none;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+        .dot-selector {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.04);
+            padding: 12px;
+            border-radius: 25px;
+        }
+
+        .hidden { display: none !important; }
+
+        footer {
+            margin-top: auto;
+            padding: 25px;
+            text-align: center;
+            background: rgba(0,0,0,0.02);
+        }
+
+.tasbih-nav-btn {
+    background: linear-gradient(135deg, var(--accent), #b39359);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    font-weight: bold;
-    flex-shrink: 0;
+    gap: 8px;
 }
 
-/* --- 4. حاوية سورة الملك (السلايدر المظبوط) --- */
+.count-hidden { display: none !important; }
+
+/* حاوية السورة الطويلة (التقليب الأفقي) */
 .surah-container {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     direction: rtl;
+    gap: 0;
     width: 100%;
     max-width: 100%;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-    scrollbar-width: none;
+    user-select: none;
+    box-sizing: border-box;
 }
 
-.surah-container::-webkit-scrollbar { display: none; }
-
 .surah-page {
-    flex: 0 0 100%; /* ضمان العرض 100% */
+    flex: 0 0 100%; /* إصلاح حاسم: الصفحة تأخذ 100% فقط */
     min-width: 100%;
     max-width: 100%;
     scroll-snap-align: start;
@@ -139,37 +320,21 @@ body {
     text-align: center;
     background: rgba(0,0,0,0.02);
     border-radius: 10px;
+    /* منع خروج النص */
+    white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal; /* السماح بنزول سطر جديد */
 }
 
-/* --- 5. شبكة التسابيح --- */
-.tasbih-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin: 25px 0;
-}
-
-.tasbih-box {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 20px 10px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    transition: all 0.2s ease;
-}
-
-.tasbih-box:active { transform: scale(0.92); }
-
-/* --- 6. زينة رمضان والفانوس --- */
 .ramadan-lights {
+    position: relative;
+    display: block;
     width: 100%;
     text-align: center;
     font-size: 18px;
     padding: 10px 0;
+    z-index: 1;
+    pointer-events: none;
     letter-spacing: 10px;
     white-space: nowrap;
     overflow: hidden;
@@ -194,6 +359,7 @@ body {
     text-align: center;
     width: 100%;
     margin-bottom: 10px;
+    animation: fadeIn 2s ease-in;
 }
 
 @keyframes swing {
@@ -202,58 +368,45 @@ body {
     100% { transform: rotate(-15deg); }
 }
 
-/* --- 7. الأزرار والحالات --- */
-.reset-btn {
-    font-size: 0.85rem;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 4px 14px;
-    border-radius: 8px;
-    background: transparent;
-    cursor: pointer;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.reset-active {
-    background-color: var(--glow-color) !important;
-    color: #000 !important;
-    box-shadow: 0 0 20px var(--glow-color);
-    transform: scale(1.1);
-}
-
-.theme-control-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9999;
+/* التكرارات المطلوبة مع الإصلاح */
+.dhikr-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; 
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     gap: 10px;
-    padding: 8px 15px;
-    background: var(--accent);
-    color: white;
-    border-radius: 25px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-sizing: border-box;
 }
 
-.sub-tab-btn {
-    padding: 8px 30px;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    background: transparent;
-    color: var(--accent);
-    font-weight: bold;
+.surah-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
 }
 
-.sub-tab-btn.active {
-    background: var(--accent);
-    color: white;
+.surah-page {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    padding: 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: center;
 }
 
-.hidden, .count-hidden { display: none !important; }
-
-/* تحسين الأداء */
-.dhikr-card, .tasbih-box {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-}
+.surah-container::-webkit-scrollbar { display: none; }
