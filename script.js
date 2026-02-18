@@ -306,7 +306,7 @@ function renderTasbih() {
 function changeSection(value) {
     document.body.className = `theme-${value}`;
     if (document.body.classList.contains('dark-mode')) document.body.classList.add('dark-mode');
-    
+    document.activeElement.blur();
     const tabs = document.getElementById('morning-evening-tabs');
     const dotSelector = document.getElementById('tasbih-dots');
 
@@ -365,4 +365,5 @@ document.addEventListener("DOMContentLoaded", () => {
     fanoos.innerHTML = "🏮"; 
     fanoos.className = 'fanoos';
     document.body.appendChild(fanoos);
+
 });
