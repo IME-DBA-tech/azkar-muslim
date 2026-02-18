@@ -3,11 +3,11 @@
   "short_name": "أذكاري",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#fdfaf3",
-  "theme_color": "#8e7341",
+  "background_color": "#ffffff",
+  "theme_color": "#2c3e50",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/2850/2850841.png",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
